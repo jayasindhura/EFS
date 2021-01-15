@@ -1,1 +1,1 @@
-web: gunicorn CLM.wsgi --log-file -
+web: gunicorn myefs.wsgi --log-file -
