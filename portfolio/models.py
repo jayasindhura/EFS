@@ -70,3 +70,22 @@ class Stock(models.Model):
     def initial_stock_value(self):
         return self.shares * self.purchase_price
 
+class Fund(models.Model):
+    customer = models.ForeignKey(Customer, on_delete=models.CASCADE, related_name='funds')
+    fund_name = models.CharField(max_length=10)
+    name = models.CharField(max_length=50)
+    weeks_high_amt = models.DecimalField(max_digits=10, decimal_places=2)
+    weeks_low_amt = models.DecimalField(max_digits=10, decimal_places=2)
+    ex_date = models.DateField(default=timezone.now, blank=True, null=True)
+
+    def created(self):
+        self.recent_date = timezone.now()
+        self.save()
+
+    def __str__(self):
+        return str(self.customer)
+
+    def initial_profit_value(self):
+        return self.weeks_high_amt - self.weeks_low_amt
+
+

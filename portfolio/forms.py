@@ -1,5 +1,5 @@
 from django import forms
-from .models import Customer,Stock,Investment
+from .models import Customer,Stock,Investment,Fund
 
 class CustomerForm(forms.ModelForm):
     class Meta:
@@ -15,4 +15,9 @@ class InvestmentForm(forms.ModelForm):
    class Meta:
        model = Investment
        fields = ('customer', 'category', 'description', 'acquired_value', 'acquired_date', 'recent_value','recent_date')
+
+class FundForm(forms.ModelForm):
+   class Meta:
+       model = Fund
+       fields = ('customer','fund_name', 'name', 'weeks_high_amt', 'weeks_low_amt','ex_date')
 
