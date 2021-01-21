@@ -1,6 +1,7 @@
 {% extends 'portfolio/base.html' %}
 
 {% block content %}
+<link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
     <h1>Delete</h1>
     <form action="" method="post">{% csrf_token %}
       <p>Are you sure you want to delete "{{ stock.name }}"?</p>
