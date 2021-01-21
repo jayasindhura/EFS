@@ -1,5 +1,5 @@
 {% load static %}
-
+<link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
 <html lang="en">
 <head>
     <title>Eagle Financial Services</title>
@@ -86,6 +86,9 @@
                     </li>
                 {% else %}
                     <li><a href="{% url 'login' %}"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                    <li><a href="{% url 'password_reset' %}">Reset Password</a></li>
+                    <li><a href="{% url 'password_change' %}">change Password</a></li>
+                    <li><a href="{% url 'portfolio:signup' %}">Signup</a></li>
                 {% endif %}
             </ul>
         </div>
